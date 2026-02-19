@@ -11,7 +11,7 @@ import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    // 🔒 Used during money transfer to prevent double spending
+   
     @Lock(LockModeType.PESSIMISTIC_WRITE)
     @Query("SELECT u FROM User u WHERE u.id = :id")
     Optional<User> findByIdForUpdate(@Param("id") Long id);
@@ -24,3 +24,4 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
 
 }
+
