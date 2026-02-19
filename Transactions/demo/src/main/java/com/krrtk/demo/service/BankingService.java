@@ -33,14 +33,12 @@ public class BankingService {
         return userRepository.findAll();
     }
 
-    // ✅ FIXED
+    
     public User createUser(UserRequest userRequest) {
 
         User user = new User();
         user.setName(userRequest.getName());
         user.setEmail(userRequest.getEmail());
-
-        // 🔥 FIX IS HERE
         user.setBalance(userRequest.getInitialBalance());
         user.setPassword(userRequest.getPassword());
 
@@ -68,7 +66,7 @@ public class BankingService {
         return userRepository.save(user);
     }
 
-    // ✅ INDUSTRIAL-GRADE TRANSFER
+    
     @Transactional
     public void transferMoney(TransferDto dto) {
 
@@ -114,3 +112,4 @@ public class BankingService {
     }
 
 }
+
