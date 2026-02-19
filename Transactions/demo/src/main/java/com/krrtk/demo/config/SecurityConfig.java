@@ -25,7 +25,7 @@ public class SecurityConfig {
                                 "/v3/api-docs/**"
                         ).permitAll()
 
-                        // allow EVERYTHING else (IMPORTANT)
+                        
                         .anyRequest().permitAll()
                 )
                 .formLogin(form -> form.disable())
@@ -34,3 +34,4 @@ public class SecurityConfig {
         return http.build();
     }
 }
+
