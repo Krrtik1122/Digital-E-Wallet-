@@ -28,7 +28,7 @@ public class AuthService {
         user.setName(request.getName());
         user.setEmail(request.getEmail());
 
-        // 🔐 encode password ONCE
+       
         user.setPassword(passwordEncoder.encode(request.getPassword()));
 
         userRepository.save(user);
@@ -47,9 +47,10 @@ public class AuthService {
             throw new RuntimeException("Invalid credentials");
         }
 
-        // 🔑 dummy token for now
+   
         String token = UUID.randomUUID().toString();
 
         return new LoginResponse(user.getId(), token);
     }
 }
+
